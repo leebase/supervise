@@ -52,7 +52,7 @@ The acceptance run (October 7, 2026) on the installed release, through the publi
 | 4 | repair | GPT-6.1 Sol, high, Codex | 58.31 | pass |
 | 5 | review | Claude Sonnet 5.5, high, Claude Code | 127.841 | accepted |
 
-Total 391.575 s, equal to the closure record; every route record names the publication hash; the final attestation carries its attempt id. Independent verification afterwards confirmed 51/51 tests on the live source, source and test hashes against the baseline, the attestation binding and the accounting (six manual CLI scenarios are reported in the launch brief only; the retained verification note does not record them and no transcript was kept, so that count is reported, not traceable). It did **not** recompute the aggregate source hash or the seal chunks; the [case study](docs/case-study.md) explains the difference between accepted operational closure and exhaustive security assurance.
+Total 391.575 s, equal to the closure record; every route record names the publication hash; the final attestation carries its attempt id. Independent verification afterwards confirmed 51/51 tests on the live source, six manual CLI scenarios executed by hand against the accepted source (expected exit codes and messages observed; [sanitized summary](examples/scrap-suno-scan-gate/README.md#manual-cli-verification)), source and test hashes against the baseline, the attestation binding and the accounting. It did **not** recompute the aggregate source hash or the seal chunks; the [case study](docs/case-study.md) explains the difference between accepted operational closure and exhaustive security assurance.
 
 v2.8.2 is an accepted production baseline. It is not proof that every workload or deployment environment is production-ready.
 

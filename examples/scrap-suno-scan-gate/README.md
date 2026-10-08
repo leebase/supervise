@@ -60,9 +60,24 @@ Manager usage is reported separately by the harness and is not in this table. Ac
 - Transport receipt: `status ACCEPTED`, `admission_phase ADMITTED`, `execution RUN`, `native_starts 5`, `delivery DELIVERED`, `manager_returncode 143` (the transport terminated the idle manager after acceptance), `terminal_readback false` (a pre-run flag), `manager_fault null`.
 - Source after closure: `scrap_suno/cli.py` modified, `scrap_suno/scan_gate.py` added, every test file byte-identical to baseline; 51/51 tests pass.
 
+## Manual CLI verification
+
+Executed by the Chief of Staff during the Run 4 verification, by hand, against the live accepted source, using scratch status files kept outside the repository (`ok.json` with `status: ok`; `authbad.json` with `status: not_signed_in`; `driftbad.json` with `status: drift_detected` and `recommended_action: stop_and_rebuild_scanner`; a missing file; a non-JSON file). `--help` listed `scan` ("Check auth and drift status before live scanning"). Observed:
+
+| # | `--auth-status` | `--drift-status` | Exit | Observed message(s) |
+|---|---|---|---|---|
+| 1 | ok | ok | 3 | `scan gate passed; live scanning is not implemented yet` |
+| 2 | not_signed_in | drift_detected | 2 | `auth gate failed: status='not_signed_in', ok=False` and `drift gate failed: status='drift_detected', ok=False, recommended_action='stop_and_rebuild_scanner'` |
+| 3 | missing file | drift_detected | 2 | `missing.json: [Errno 2] No such file or directory` and the drift gate failure |
+| 4 | non-JSON file | drift_detected | 2 | `garbage.json: Expecting value: line 1 column 1 (char 0)` and the drift gate failure |
+| 5 | not_signed_in | missing file | 2 | the missing-file error and `auth gate failed: status='not_signed_in', ok=False` |
+| 6 | ok | non-JSON file | 2 | `garbage.json: Expecting value: line 1 column 1 (char 0)` |
+
+Every refusal line is prefixed `scrap-suno: error: scan gate refused:`. All six outcomes match "Required behavior" item 2 of the [PLAN](PLAN.md), including the reviewer's finding: a missing or unreadable file no longer hides the other gate's failure.
+
 ## What independent verification confirmed, and did not
 
-Confirmed afterwards, read-only, by a party other than the author: the 51 tests on the live source; source and test hashes against the pre-run baseline; the attestation binding; the accounting; the eleven-record state chain; the exit-143 lifecycle. Reported in the launch brief only, not traceable in the retained records: six manual CLI scenarios exercising the command by hand (the retained verification note does not record them and no transcript was kept). Not recomputed: the aggregate source byte hash and the review-handoff seal chunks; the reviewer did not run the evidence verifier script itself.
+Confirmed afterwards, read-only, by a party other than the author: the 51 tests on the live source; the six manual CLI scenarios above; source and test hashes against the pre-run baseline; the attestation binding; the accounting; the eleven-record state chain; the exit-143 lifecycle. Not recomputed: the aggregate source byte hash and the review-handoff seal chunks; the reviewer did not run the evidence verifier script itself.
 
 ---
 

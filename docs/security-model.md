@@ -25,7 +25,7 @@ This page describes the trust boundaries of `/supervise` v2.8.2 as designed and 
 
 ## What the acceptance run verified
 
-Independent verification of the October 7, 2026 run confirmed: 51 of 51 tests on the live source; only the two owned files changed and the frozen tests byte-identical; the attestation binding (attempt id present in both records, route file seal matching its compact-JSON hash); five starts summing to the closure total; the eleven-record state chain; the transport's exit-143 lifecycle. The crew, exclusions, and read-only reviewer tooling were read directly from the sealed records. Six manual CLI scenarios are reported in the launch brief only; the retained verification note does not record them and no transcript was kept, so that count is reported rather than traceable.
+Independent verification of the October 7, 2026 run confirmed: 51 of 51 tests on the live source; six manual CLI scenarios executed by hand against the accepted source with the expected exit codes and messages observed; only the two owned files changed and the frozen tests byte-identical; the attestation binding (attempt id present in both records, route file seal matching its compact-JSON hash); five starts summing to the closure total; the eleven-record state chain; the transport's exit-143 lifecycle. The crew, exclusions, and read-only reviewer tooling were read directly from the sealed records.
 
 ## What it did not verify
 
