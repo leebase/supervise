@@ -1,7 +1,7 @@
-/supervise documentation, case study and examples
+/supervise source code, documentation, case study and examples
 Copyright 2026 Lee Harrington
 
-This product includes documentation and examples developed by Lee Harrington
+This product includes software, documentation and examples developed by Lee Harrington
 (https://github.com/leebase/supervise).
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -17,7 +17,8 @@ specific language governing permissions and limitations under the License.
 
 Third-party notices
 
-This repository contains no third-party source code. The documentation refers to
-third-party products by name (Claude Code, Codex, Pi, OpenCode, oh-my-pi, Python,
-Node.js, Chromium); those names are the property of their respective owners and
-their use here is descriptive only. No third-party software is redistributed.
+This repository contains no third-party source code and redistributes no
+third-party software. The software runs alongside programs that each user
+installs separately under that program's own terms (Python, bubblewrap, Codex
+CLI, Claude Code, oh-my-pi); see THIRD_PARTY.md. Product names are the property
+of their respective owners and are used descriptively.

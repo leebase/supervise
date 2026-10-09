@@ -2,6 +2,19 @@
 
 Release names are the installed release directory names. Dates are local time (US Central) of the release directory; publication hashes are the SHA-256 of the release's `publication.json`.
 
+## v0.1.0 (public build) — first installable source release
+
+The first installable, Apache-2.0 source release of /supervise: a portable build derived from production v2.8.2 that
+runs on an ordinary Linux machine with Python 3.12, bubblewrap, Codex CLI, Claude Code and oh-my-pi, replacing the
+private staffing router with a TOML route catalog. Version numbers are separate from the production 2.8.x line.
+
+- Kernel, controller, simple backend (Codex CLI, Claude Code), OMP manager extension, installer, doctor and offline
+  `verify` (ten checks); 454 tests.
+- Accepted through independent whole-candidate reviews by two model families (DeepSeek V4.1 Flash and Claude Sonnet
+  5.5, zero High / zero Medium) and a fresh-host first-use proof: a new agent session given only this README installed
+  it in a disposable Ubuntu 24.04 VM and delivered an example task to ACCEPTED with offline verification PASS.
+- See [known limitations](docs/known-limitations.md), including that worker-executed code is not sandboxed by supervise.
+
 ## v2.8.2 — 2026-10-07 20:01 — `20261007-v2.8.2-attested-receipt-candidate`
 
 Publication `2e5845bd49fcd2fffa1eab96a04b64b39e0fad868e8387dcd55e5d268a26e511`. Accepted production baseline.
